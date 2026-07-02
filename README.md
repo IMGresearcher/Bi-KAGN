@@ -5,7 +5,7 @@ PyTorch implementation of **Bi-KAGN**: an interpretable bearing remaining useful
 ## Project structure
 
 ```text
-Bi-KAGN-open-source/
+Bi-KAGN-master/
 ├── bikagn/
 │   ├── configs.py                 # Dataset and model configuration dataclasses
 │   ├── kan_layers.py              # KANLinear and Chebyshev GraphKAN convolution
@@ -27,7 +27,6 @@ Bi-KAGN-open-source/
 │   ├── train_xjtu.py              # XJTU-SY leave-one-out experiment
 │   └── train_phm2012.py           # PHM2012 condition-wise experiment
 ├── requirements.txt
-├── pyproject.toml
 └── README.md
 ```
 
@@ -120,23 +119,6 @@ python scripts/train_xjtu.py \
   --output-root ./outputs
 ```
 
-Use the GAT baseline instead of GraphKAN:
-
-```bash
-python scripts/train_xjtu.py \
-  --data-root ./XJTU \
-  --use-gat \
-  --regressor kan
-```
-
-Use the MultKAN regression head:
-
-```bash
-python scripts/train_xjtu.py \
-  --data-root ./XJTU \
-  --regressor multkan
-```
-
 ### Train on PHM2012
 
 ```bash
@@ -146,17 +128,6 @@ python scripts/train_phm2012.py \
   --epochs 300 \
   --regressor kan \
   --output-root ./outputs
-```
-
-Save KAN function-response explanations during PHM2012 training:
-
-```bash
-python scripts/train_phm2012.py \
-  --data-root ./ieee-phm-2012-data-challenge-dataset-master \
-  --device cuda:0 \
-  --epochs 300 \
-  --regressor kan \
-  --explain
 ```
 
 ## Outputs
@@ -188,21 +159,3 @@ outputs/
             └── Condition_I/
                 └── rul_plots/
 ```
-
-
-## Citation
-
-If this repository is useful, please cite the corresponding paper once it is available.
-
-```bibtex
-@article{bikagn2026,
-  title   = {A novel interpretable method for bearing remaining useful life prediction based on bidirectional Kolmogorov-Arnold-informed graph neural network},
-  author  = {Zhang, Haoxuan and others},
-  journal = {Advanced Engineering Informatics},
-  year    = {2026}
-}
-```
-
-## License
-
-Please add a `LICENSE` file before public release. If no license is included, the code is not formally open-source under common GitHub conventions.
