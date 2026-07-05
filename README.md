@@ -1,4 +1,4 @@
-# Bi-KAGN
+# PE-BMGN
 
 PyTorch implementation of **PE-BMGN**: A physics-enhanced bidirectional multi-level graph fusion network for interpretable bearing remaining useful life prediction.
 
